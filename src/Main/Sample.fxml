@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1200.0" styleClass="fondoBottonAnchorPanel" xmlns:fx="http://javafx.com/fxml" fx:controller="Main.SampleController">
+  <children>
+    <LineChart fx:id="graph" layoutY="300.0">
+      <xAxis>
+        <NumberAxis label="x" tickUnit="1.0" />
+      </xAxis>
+      <yAxis>
+        <NumberAxis label="f(x)" side="LEFT" tickUnit="1.0" />
+      </yAxis>
+    </LineChart>
+    <TextArea fx:id="textArea" layoutX="510.0" layoutY="40.0" prefHeight="630.0" prefWidth="680.0" wrapText="true" />
+    <Label layoutX="520.0" layoutY="10.0" text="Datos de la ejecución del algoritmo:">
+      <font>
+        <Font name="Comic Sans MS Bold" size="20.0" fx:id="x1" />
+      </font>
+    </Label>
+    <Button fx:id="startBT" contentDisplay="CENTER" font="$x1" layoutX="275.0" layoutY="13.0" mnemonicParsing="false" onAction="#accionStart" prefWidth="210.0" styleClass="boton" text="Start" />
+    <Label layoutX="15.0" layoutY="15.0" text="Nº de Individuos:">
+      <font>
+        <Font name="Comic Sans MS Bold" size="16.0" fx:id="x2" />
+      </font>
+    </Label>
+    <ChoiceBox fx:id="chIndividuos" layoutX="190.0" layoutY="15.0" prefWidth="70.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="2" />
+          <String fx:value="3" />
+          <String fx:value="4" />
+          <String fx:value="5" />
+          <String fx:value="6" />
+          <String fx:value="7" />
+          <String fx:value="8" />
+          <String fx:value="9" />
+          <String fx:value="10" />
+        </FXCollections>
+      </items>
+    </ChoiceBox>
+    <Label font="$x2" layoutX="15.0" layoutY="60.0" text="Nº de Cromosomas:" />
+    <ChoiceBox fx:id="cdCromosomas" layoutX="190.0" layoutY="60.0" prefWidth="70.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="4" />
+          <String fx:value="5" />
+          <String fx:value="6" />
+          <String fx:value="7" />
+          <String fx:value="8" />
+        </FXCollections>
+      </items>
+    </ChoiceBox>
+    <Label font="$x2" layoutX="15.0" layoutY="105.0" text="Nº de Generaciones:" />
+    <TextField fx:id="tfGeneraciones" layoutX="190.0" layoutY="105.0" prefWidth="70.0" />
+    <Label font="$x2" layoutX="15.0" layoutY="150.0" text="Prob Emparejamiento:" />
+    <Label font="$x2" layoutX="20.0" layoutY="195.0" text="Prob Mutación:" />
+    <ChoiceBox fx:id="chEmparejamiento" layoutX="190.0" layoutY="150.0" prefWidth="70.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="0.5" />
+          <String fx:value="0.6" />
+          <String fx:value="0.7" />
+          <String fx:value="0.8" />
+          <String fx:value="0.9" />
+          <String fx:value="1.0" />
+        </FXCollections>
+      </items>
+    </ChoiceBox>
+    <ChoiceBox fx:id="chMutacion" layoutX="190.0" layoutY="195.0" prefWidth="70.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="0.0" />
+          <String fx:value="0.1" />
+          <String fx:value="0.2" />
+          <String fx:value="0.3" />
+          <String fx:value="0.4" />
+          <String fx:value="0.5" />
+        </FXCollections>
+      </items>
+    </ChoiceBox>
+    <Label layoutX="275.0" layoutY="58.0" prefHeight="28.0" prefWidth="210.0" text="4 Cromosomas -&gt; Rango [0-15]" textAlignment="CENTER">
+      <font>
+        <Font name="Comic Sans MS" size="14.0" fx:id="x3" />
+      </font>
+    </Label>
+    <Label font="$x3" layoutX="275.0" layoutY="88.0" prefHeight="28.0" prefWidth="210.0" text="5 Cromosomas -&gt; Rango [0-31]" textAlignment="CENTER" />
+    <Label font="$x3" layoutX="275.0" layoutY="118.0" prefHeight="28.0" prefWidth="210.0" text="6 Cromosomas -&gt; Rango [0-63]" textAlignment="CENTER" />
+    <Label font="$x3" layoutX="275.0" layoutY="148.0" prefHeight="28.0" prefWidth="210.0" text="7 Cromosomas -&gt; Rango [0-127]" textAlignment="CENTER" />
+    <Label font="$x3" layoutX="275.0" layoutY="178.0" prefHeight="28.0" prefWidth="210.0" text="8 Cromosomas -&gt; Rango [0-255]" textAlignment="CENTER" />
+    <Label layoutX="10.0" layoutY="240.0" text="Generación:">
+      <font>
+        <Font name="Comic Sans MS Bold" size="14.0" fx:id="x4" />
+      </font>
+    </Label>
+    <Label font="$x4" layoutX="147.0" layoutY="240.0" text="Mejor Individuo:" />
+    <Label font="$x4" layoutX="321.0" layoutY="239.0" text="Función Calidad:" />
+    <TextField fx:id="tfGeneracion" layoutX="90.0" layoutY="240.0" prefWidth="50.0" />
+    <TextField fx:id="tfMejorIndividuo" layoutX="262.0" layoutY="238.0" prefWidth="50.0" />
+    <TextField fx:id="tfFuncionCalidad" layoutX="434.0" layoutY="238.0" prefWidth="70.0" />
+    <Label layoutX="27.0" layoutY="273.0" prefWidth="484.0" text="Gráfica de la función f(x) = ABS |x-5 / 2+sen(x)|" textAlignment="CENTER" textFill="#cc0000">
+      <font>
+        <Font name="Comic Sans MS Bold" size="19.0" />
+      </font>
+    </Label>
+  </children>
+  <stylesheets>
+    <URL value="@estilosCSS.css" />
+  </stylesheets>
+</AnchorPane>
